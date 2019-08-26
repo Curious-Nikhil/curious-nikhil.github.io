@@ -53,8 +53,13 @@ body {
   color: #333;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  background: #f7f7f7;
+  background: #f7f7f7;/*#f7f7f7 */
+  background-image: url("/resources/bg_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;
 }
+
 
 h1 {
   font-size: 2.25em;
@@ -106,7 +111,7 @@ ion-icon {
 }
 
 .loadanimation {
-  animation: 1s ease-in-out both fadeInRight;
+  animation: 0.5s ease-in-out both fadeInRight;
 }
 
 @keyframes fadeInRight {
@@ -251,41 +256,41 @@ ion-icon {
 
 #spin:after {
   content: "";
-  animation: spin 2.5s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 @keyframes spin {
   0% {
-    content: "Go";
-  }
-  10% {
-    content: "Terraform";
-  }
-  20% {
-    content: "Java";
-  }
-  30% {
     content: "Python";
   }
-  40% {
-    content: "Node";
+  10% {
+    content: "Rockets";
   }
-  50% {
-    content: "JavaScript";
+  20% {
+    content: "Arduino";
   }
-  60% {
-    content: "PHP";
-  }
-  70% {
-    content: "VB.Net";
-  }
-  80% {
-    content: "React";
-  }
-  90% {
+  30% {
     content: "C";
   }
+  40% {
+    content: "C++";
+  }
+  50% {
+    content: "Fusion360";
+  }
+  60% {
+    content: "-";
+  }
+  70% {
+    content: "-";
+  }
+  80% {
+    content: "-";
+  }
+  90% {
+    content: "-";
+  }
   100% {
-    content: "Bash";
+    content: "-";
   }
 }

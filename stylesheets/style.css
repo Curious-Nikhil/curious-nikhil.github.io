@@ -54,7 +54,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   background: #f7f7f7;/*#f7f7f7 */
-  /* background-image: url("/resources/bg_1.jpg"); */
+  background-image: url("/resources/nasa-2.jpg");
   background-repeat: no-repeat;
   background-position: center; 
   background-size: cover;
@@ -256,41 +256,41 @@ ion-icon {
 
 #spin:after {
   content: "";
-  animation: spin 4s linear infinite;
+  animation: spin 10s linear infinite;
 }
 
 @keyframes spin {
   0% {
-    content: "Python";
+    content: "Code Python";
   }
   10% {
-    content: "Rockets";
+    content: "Build Rockets";
   }
   20% {
-    content: "Arduino";
+    content: "Code Arduino";
   }
   30% {
-    content: "C";
+    content: "Code C";
   }
   40% {
-    content: "C++";
+    content: "Code C++";
   }
   50% {
-    content: "Fusion360";
+    content: "do CAD";
   }
   60% {
-    content: "-";
+    content: "not Disapparate";
   }
   70% {
-    content: "-";
+    content: "Mischief Managed!";
   }
   80% {
-    content: "-";
+    content: "It's leviousa";
   }
   90% {
-    content: "-";
+    content: "--";
   }
   100% {
-    content: "-";
+    content: "--";
   }
 }

@@ -54,7 +54,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   background: #f7f7f7;/*#f7f7f7 */
-  background-image: url("/resources/nasa-2-min.jpg");
+  background-image: url("/resources/nasa-2-min.png");
   background-repeat: no-repeat;
   background-position: center; 
   background-size: cover;
@@ -264,33 +264,33 @@ ion-icon {
     content: "Code Python";
   }
   10% {
-    content: "Build Rockets";
+    content: "Build C++";
   }
   20% {
-    content: "Code Arduino";
-  }
-  30% {
     content: "Code C";
   }
-  40% {
-    content: "Code C++";
-  }
-  50% {
+  30% {
     content: "do CAD";
   }
+  40% {
+    content: "do MATLAB";
+  }
+  50% {
+    content: "do Simulink";
+  }
   60% {
-    content: "not Disapparate";
+    content: "do PCB Designing";
   }
   70% {
-    content: "Mischief Managed!";
+    content: "fly Rockets";
   }
   80% {
-    content: "It's leviousa";
+    content: "can levitate";
   }
   90% {
-    content: "--";
+    content: "not Disapparate";
   }
   100% {
-    content: "--";
+    content: "Yes! I can...";
   }
 }

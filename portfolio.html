@@ -1,10 +1,10 @@
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="My Projects about Rockets, Astronomy, Electronics">
+  <meta name="description" content="My life sized Projects about Rockets, Electronics, Astronomy and more!">
   <meta name="author" content="Nikhil Mishra">
 
+  <link rel="shortcut icon" type="image/png" href="resources/favicon_2.png"/>
   <title>Nikhil's Portfolio - Projects</title>
 
   <!-- Bootstrap core CSS -->
@@ -32,7 +32,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Nikhil Mishra 😁</a>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="/img/nav_icon2.png" width="200" height="30" alt="">
+      </a>
+    </nav>
+    <!-- <a class="navbar-brand" href="index.html">Nikhil Mishra 😁</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,8 +72,44 @@
     <h2 class="font-weight-light"></h2>
   </div>
 </section>
+
 <!-- Page Content -->
 <div class="container">
+  <!-- Related Projects Row -->
+  <h3 class="my-4">Projects List</h3>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+    </ol>
+  </nav>
+  <div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#Laser_Project">
+            <img class="img-fluid" src="img/laser-thumbnail.png" alt="Laser Communication Project">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" src="img/gsoc-thumnail.png" alt="GSOC - Satellite Tracker Project">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" src="img/tejas_thumbnail.png" alt="TEJAS - Model Rocket Project">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" src="/img/kragon_thumnail.png" alt="KRAGON - Venus Exploration Tech Demo Project">
+          </a>
+    </div>
+  
+    
   <!-- Page Heading -->
   <h1 class="my-4">Major Projects <br>
     <small>development period of more than a year</small>
@@ -76,12 +118,19 @@
       <!-- Project One Laser Comm-->
       <div class="row">
         <div class="col-md-7">
-          <a href="/tejas">
+          <a>
             <img class="img-fluid rounded mb-3 mb-md-0" src="img/laser-thumbnail.png" alt="">
           </a>
         </div>
         <div class="col-md-5">
-          <h3>Design of Laser Comms for Sat Constellations</h3>
+          <h3 id = "Laser_Project">Design of Laser Comms for Sat Constellations</h3>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> Completed 25%</div>
+          </div>
+          <span class="badge badge-primary">Electronics</span>
+          <a href="#" class="badge badge-dark">Space</a>
+          <span class="badge badge-secondary">Major Project</span>
+          <span class="badge badge-success">In Progress</span>
           <p>Satellites are the most important nodes in the global communication infrastructure on and off-earth. 
             They process zillions of data every year. Despite it’s popular applications, it’s rarely available in rural areas. 
             This can be solved by the use of Satellite Constellations which forms a grid of networks in space. 
@@ -90,8 +139,9 @@
             will truly provide global high-speed internet access with future applications in LunerNet, a Lunar Internet framework 
             initiative by NASA which will provide internet on the Moon.
           </p>
-          <a class="btn btn-primary" href="tejas.html">View Project</a>
-          <a class="btn btn-primary" href="https://docs.google.com/document/d/e/2PACX-1vSw7IopEnTfQv1Wnoj0A6OX5vOk0qrXicICNKAOElWQShC81DigwtTv62xWEma5aG9T1v7xiaycCayT/pub">View Docs</a>
+          
+          <a class="btn btn-primary" href="#">View Project</a>
+          <a class="btn btn-secondary" href="https://docs.google.com/document/d/e/2PACX-1vSw7IopEnTfQv1Wnoj0A6OX5vOk0qrXicICNKAOElWQShC81DigwtTv62xWEma5aG9T1v7xiaycCayT/pub">View Docs</a>
         </div>
       </div>
     <hr>
@@ -103,14 +153,21 @@
         </a>
       </div>
       <div class="col-md-5">
-        <small>Google Summer of Code</small>
         <h3>Tracking continuous and sporadic signals of Satellites</h3>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Completed 100%</div>
+        </div>
+        <a href="#" class="badge badge-primary">Electronics</a>
+        <a href="#" class="badge badge-dark">Space</a>
+        <a href="http://summerofcode.withgoogle.com/" class="badge badge-warning">Google Summer of Code</a>
+        <a href="#" class="badge badge-info">Completed</a>
+
         <p>With increasing popularity in CubeSat technologies, it has gotten ever so important to have low-cost systems that complement the economical and 
           self-reliant nature of today’s cubesats providers. One of the most important parts of an end to end small satellite business is ground-based tracking. 
           Satellite tracking provides valuable information on the whereabouts. Satellite tracking industry is booming with the use of large antennas and 
           high power transmitters at cost-prohibitive nature but at the cost of expense and lead time.</p>
         <a class="btn btn-primary" href="https://aerospaceresearch.net/?p=1942">View Project</a>
-        <a class="btn btn-primary" href="https://aerospaceresearch.net/?p=1942">View Docs</a>
+        <a class="btn btn-secondary" href="https://aerospaceresearch.net/?p=1942">View Docs</a>
       </div>
     </div>
     <hr>
@@ -120,11 +177,15 @@
   <div class="row">
     <div class="col-md-7">
       <a href="tejas.html">
-        <img class="img-fluid rounded mb-3 mb-md-0" src="img/Tejas Model Rocket Github Repo Pic.png" alt="TEJAS Thumbnail">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="img/tejas_thumbnail.png" alt="TEJAS Thumbnail">
       </a>
     </div>
     <div class="col-md-5">
       <h3>TEJAS - Model Rocket</h3>
+      <a href="#" class="badge badge-primary">Electronics</a>
+      <a href="#" class="badge badge-info">Completed</a>
+      <a href="#" class="badge badge-dark">Space</a>
+
       <p>This took over a year for the development and testing phases.
         Building a model rocket from scratch requires, building up the infrastructure first.
         This consists of Thrust Bench, Launchpad services and Rocket Motor Dev. 
@@ -132,7 +193,7 @@
           It performs data logging of 10 channel stream at 30 times per second.
          More features: Killswitch, Apogee Detection, Safety Net.</p>
       <a class="btn btn-primary" href="tejas.html">View Project</a>
-      <a class="btn btn-primary" href="https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer">Github</a>
+      <a class="btn btn-secondary" href="https://github.com/Curious-Nikhil/Tejas-Rocket-Flight-Computer">Github</a>
 
     </div>
   </div>
@@ -149,13 +210,16 @@
     </div>
     <div class="col-md-5">
       <h3>KRAGON <small>Venus Exploration Mission</small> </h3>
-      
+      <a href="#" class="badge badge-primary">Electronics</a>
+      <a href="#" class="badge badge-info">Completed</a>
+      <a href="#" class="badge badge-dark">Space</a>
       <p>Humans have been intrigued by the question of whether life exists out there since our inception. 
         That fundamental curiosity inspired great people to go where no man has gone before.
          Venus is one such planet which is worth the visit. Venus is one such planet. 
         A technology demonstration on Earth would be ideal to prototype and test the systems before arriving on Venus.
         </p>
       <a class="btn btn-primary" href="/kragon.html">View Project</a>
+      <a class="btn btn-secondary" href="/kragon.html">View Paper</a>
     </div>
   </div>
   <!-- /.row -->
@@ -172,20 +236,21 @@
   <div class="row">
     <div class="col-lg-4 col-sm-6 mb-4">
       <div class="card h-100">
-        <a href="/projects/Mini Project.pdf"><img class="card-img-top" src="/img/slam-mini-project-thumbnail.png" alt="Project Thumbnail"></a>
+        <a href="#"><img class="card-img-top" src="/img/slam-mini-project-thumbnail.png" alt="Project Thumbnail"></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="/projects/Mini Project.pdf">Underwater Image Enhancement Method for SLAM of Autonomous Underwater Vehicle</a>
+            <a href="/projects/mini_projects/Underwater Image Enhancement - SLAM - Doc.pdf">Underwater Image Enhancement Method for SLAM of Autonomous Underwater Vehicle</a>
           </h4>
+          <a href="#" class="badge badge-primary">Software</a>
+          <a href="#" class="badge badge-info">Completed</a>
           <p class="card-text">
             In the recent days, wide range of research has been carried out on visual enhancement of under images in submarine and military operations to 
             discover submerged structural designing and sea floor exploration. But, diving in the deep ocean for a long time has increased the difficulties 
             for analysis of underwater images. Further, other factors such as scattering resulting from presence of particles inside the water and blurring 
-            effects reduce the quality of images being captured by underwater optic camera. There are several algorithms have been introduced to improve the 
-            visual quality of deep-water images. Therefore, in this project, a novel algorithm based on bidirectional Empirical Mode Decomposition (BEMD) to
-             enhance the visual quality of the underwater images will be implemented and comparison of data with conventional enhancement technique will be illustrated.
+            effects reduce the quality of images being captured by underwater optic camera. A novel algorithm based on bidirectional Empirical Mode Decomposition (BEMD) to
+             enhance the visual quality of the underwater images.
           </p>
-          <a class="btn btn-primary" href="/projects/Mini Project.pdf">View Project</a>
+          <a class="btn btn-primary" href="/projects/mini_projects/Underwater Image Enhancement - SLAM - Doc.pdf">View Project</a>
         </div>
       </div>
     </div>
@@ -197,10 +262,13 @@
           <h4 class="card-title">
             <a href="#">PDA: Personal Digital Assistant </a>
           </h4>
+          <a href="#" class="badge badge-primary">Software</a>
+          <a href="#" class="badge badge-info">Completed</a>
           <p class="card-text">
             Computers have fueled our growth for the last century rapidly. They are can solve complex problems in a matter of seconds. Yet, it’s very difficult to understand human speech. Things that are inherently easy for humans, is unfortunately really hard for computers.  Fortunately for us, for the first time ever, due to rapid advancements in machine learning and processing power, it is possible for computers to understand human speech, analyse images and talk back. 
             Google Assistant has utilised a decade of text-to-speech research from Google and has open sourced it. This will enhance human ability for decades to come.  
           </p>
+          <a class="btn btn-primary" href="#">View Project</a>
         </div>
       </div>
     </div>
@@ -210,15 +278,44 @@
         <a href="#"><img class="card-img-top" src="img/solar-system-sim-thumbnail.png" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#">Solar System Simulator</a>
+            <a href="https://github.com/Curious-Nikhil/Solar-System-Simulator">Solar System Simulator</a>
           </h4>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+          <a href="#" class="badge badge-primary">Software</a>
+          <a href="#" class="badge badge-info">Completed</a>
+          <p class="card-text">
+            Am a big fan of space flight and the journey it has still to cover. 
+            Nasa's Curiosity Rover or ISRO's Martian Orbital Mission truely inspired me,of how a group of like minded people can set out to do 
+            something impossible on the face of the planet.I love reading books, especially sci fi books, one of favourite is The Martian. 
+            Andy Weir the author of The Martian, used a physics simulator to simulate the motion of his fictional ship (Ares V) with respect to earth and mars,
+             so that he could write in accurate dates in his book. That was the starting point of this project. Back then, 
+             it didnt make any sense to start learning programming, but now since I had a goal to achieve, everything was different.
+          </p>
+          <a class="btn btn-primary" href="https://github.com/Curious-Nikhil/Solar-System-Simulator">View Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" src="https://github.com/Curious-Nikhil/Virtual-Sentinel/blob/master/img/Virtual%20Sentinel%20-%20PPT.png?raw=true" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="https://github.com/Curious-Nikhil/Virtual-Sentinel">Virtual Sentinel</a>
+          </h4>
+          <a href="#" class="badge badge-primary">Electronics</a>
+          <a href="#" class="badge badge-info">Completed</a>
+          <p class="card-text">
+            To build a system with localized sensors along these roads that sense the sudden crossing of animals and alert the driver in the vehicles 
+            through caution lights that are set upon the roads so that he can slow down or stop the vehicle and prevent the roadkill.
+          </p>
+          <a class="btn btn-primary" href="https://github.com/Curious-Nikhil/Virtual-Sentinel">View Project</a>
         </div>
       </div>
     </div>
     
-  <hr>
-  <h4>Other projects at github</h4>
+    <hr>
+    <h4>Other projects at github</h4>
+    <a href="https://github.com/Curious-Nikhil"><img class="card-img-top" src="img/github-thumbnail.png" alt=""></a>
 </div>
 
   <!-- Footer -->

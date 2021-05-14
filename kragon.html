@@ -35,7 +35,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Nikhil Mishra 😎</a>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="/img/nav_icon2.png" width="200" height="30" alt="">
+      </a>
+    </nav>
+    <!-- <a class="navbar-brand" href="index.html">Nikhil Mishra 😁</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,12 +51,15 @@
           <a class="nav-link" href="index.html">Home
                 <span class="sr-only">(current)</span>
               </a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://medium.com/curiousnikhil">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
@@ -59,7 +68,6 @@
     </div>
   </div>
 </nav>
-
 <!-- Page Content Gap -->
 <section class="py-5">
   <div class="container">
@@ -73,10 +81,18 @@
   <h1 class="my-4">KRAGON
     <small>A Mission to Venus</small>
   </h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">KRAGON Project</li>
+    </ol>
+  </nav>
   <div class="iframe-container">  
     <iframe src="https://www.youtube.com/embed/8iKs2ijL9JY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
   <br>
+  <h1>Introduction</h1>
     <p class="card-text"> 
         Humans have been intrigued by the question of whether life exists out there since our inception. 
         That fundamental curiosity inspired great people to go where no man has gone before. 
@@ -88,8 +104,7 @@
         A lander(KRAGON) will investigate the surface and act as a wagon for the onboard rover(KRAWLER) which will explore further. 
         Developing a proof of concept on Earth would be ideal to prototype and test the systems before arriving on Venus.
     </p>
-  <br>
-
+  <h1>Project Overview</h1>
   <div class="row">
     <div class="col-lg-6 mb-4">
       <div class="card h-100">
@@ -176,57 +191,58 @@
     <!-- Page Ending - Team Mates -->
     <div>
       <h1 class="my-4">Team:
-        <small><br></small>
+        <small>The Pillars of this Massive Project</small>
       </h1>  
-   <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="resources/Nikhil_Avatar.png" alt="Nikhil" style="width:100%">
-        <div class="container">
-          <h2>Nikhil Mishra</h2>
-          <p class="title">Captain  &amp; Electronics</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button" href="twitter.com/curiousnikkhil">Contact</button></p>
+    <!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="img/team_nikhil_pic.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Nikhil Mishra</h5>
+          <div class="card-text text-black-50">Captain & Systems Design</div>
+          <a class="btn btn-primary" href="https://twitter.com/curiousnikkhil" role="button">Contact</a>
+
         </div>
       </div>
     </div>
-  
-    <div class="column">
-      <div class="card">
-        <!-- <img src="img2.jpg" alt="Mike" style="width:100%"> -->
-        <div class="container">
-          <h2>Amith Reddy</h2>
-          <p class="title">Mission Deisgn &amp; Lead Mechanical</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">Contact</button></p>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="img/team_amith_pic.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Amith Reddy</h5>
+          <div class="card-text text-black-50">Lead Design Engineer</div>
         </div>
       </div>
     </div>
-  
-    <div class="column">
-      <div class="card">
-        <!-- <img src="img3.jpg" alt="John" style="width:100%"> -->
-        <div class="container">
-          <h2>Kushal Pooppal</h2>
-          <p class="title">Kushal Pooppal</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">Contact</button></p>
+    <!-- Team Member 3 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="img/team_kushal_pic.png" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Kushal Pooppal</h5>
+          <div class="card-text text-black-50">Test Engineer</div>
         </div>
       </div>
     </div>
-      
-    <div class="column">
-      <div class="card">
-        <!-- <img src="img3.jpg" alt="John" style="width:100%"> -->
-        <div class="container">
-          <h2>Satish Nirala</h2>
-          <p class="title"></p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p><button class="button">Contact</button></p>
+    <!-- Team Member 4 -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow">
+        <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Satish Nirala</h5>
+          <div class="card-text text-black-50">Parachute Dev</div>
         </div>
       </div>
     </div>
+  </div>
+  <!-- /.row -->
+
 </div>
+<!-- /.container -->
 <!-- /.container -->
 
   <!-- Footer -->

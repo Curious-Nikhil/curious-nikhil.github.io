@@ -9,6 +9,7 @@
 
   <meta name="author" content="Nikhil Mishra">
 
+  <link rel="shortcut icon" type="image/png" href="resources/favicon_2.png"/>
   <title>TEJAS - A Model Rocket</title>
 
   <!-- Bootstrap core CSS -->
@@ -36,7 +37,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Nikhil Mishra 😎</a>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="/img/nav_icon2.png" width="200" height="30" alt="">
+      </a>
+    </nav>
+    <!-- <a class="navbar-brand" href="index.html">Nikhil Mishra 😁</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,12 +53,15 @@
           <a class="nav-link" href="index.html">Home
                 <span class="sr-only">(current)</span>
               </a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">Portfolio</a>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://medium.com/curiousnikhil">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
@@ -60,7 +70,6 @@
     </div>
   </div>
 </nav>
-
 <!-- Page Content Gap -->
 <section class="py-5">
   <div class="container">
@@ -74,6 +83,13 @@
   <h1 class="my-4">TEJAS
     <small>Building the infrastructure</small>
   </h1>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="portfolio.html">Portfolio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Tejas Project</li>
+    </ol>
+  </nav>
   <div class="iframe-container">  
     <iframe src="https://www.youtube.com/embed/j3z7UXpAsL0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
@@ -82,8 +98,8 @@
     <iframe src="https://www.youtube.com/embed/_nnlK71q7fo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
   <br>
-  <br>
-      <p class="card-text"> 
+  <h2>Introduction</h2>	
+  <p class="card-text"> 
     This took over a year for the development and testing phases.
     It's finally in the launch phase. Building a model rocket from scratch requires, building up the infrastructure first.
     This consists of Thrust Bench, Launchpad services and Rocket Motor Dev. 
@@ -91,9 +107,12 @@
     It performs data logging of 10 channel stream at 30 times per second.
      The software design utilized a state based system where the computer is aware of the flight stages.
      More features: Killswitch, Apogee Detection, Safety Net.
-    </p>
-  <br>
-
+  </p>
+  <h2>Overview</h2>	
+  <a href="#" class="badge badge-primary">Electronics</a>
+  <a href="#" class="badge badge-info">Completed</a>
+  <a href="#" class="badge badge-dark">Space</a>
+  
   <div class="row">
     <div class="col-lg-6 mb-4">
       <div class="card h-100">

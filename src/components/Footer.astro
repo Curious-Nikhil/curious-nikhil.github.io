@@ -13,7 +13,7 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 ---
 
 <footer
-  class:list={["app-layout relative", { "mt-auto": !noMarginTop }, className]}
+  class:list={["relative app-layout", { "mt-auto": !noMarginTop }, className]}
   {...attrs}
 >
   <div class="absolute inset-0 -z-10 overflow-hidden opacity-10">

@@ -8,13 +8,13 @@ featured: false
 draft: false
 tags:
   - space
-description:
-  Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
+description: Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
 ---
 
 ![GSLV Mk III-D1 Successfully launches GSAT-19](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*DJDqTXNHwGXmukaCA8cVvA.jpeg)
 
 # Why Doesn’t ISRO Develop Reusable Rockets, like SpaceX
+
 ======================================================
 
 **_So, first a little backstory…_**
@@ -24,7 +24,7 @@ This is from a interview at TED talks[[1]](https://www.quora.com/Can-the-ISRO-mo
 <b>[other]TED Talk[/other]</b>
 
 > **_CA:_** _I mean, SpaceX has made the regular re usability of rockets seem almost routine, which means you’ve done something that no national space program, for example, has been able to achieve. How was that possible?_
-> 
+>
 > **_Gwynne Shotwell:_** _I think there’s a couple of things — there’s a million things, actually — that have allowed SpaceX to be successful. The first is that we’re kind of standing on the_ **_shoulders of giants_**_. Right? We got to look at the_ **_rocket industry and the developments_** _to date, and we got to_ **_pick the best ideas, leverage them_**_. We also didn’t have technology that we had to include in our vehicle systems. So we didn’t have to design around_ **_legacy components_** _that maybe weren’t the most reliable or were particularly expensive, so we really were able to let physics drive the design of these systems._
 
 So, at the end, it all boils down to **priorities**. When ISRO was found their **mission statement** was and still is as of today.
@@ -51,8 +51,8 @@ The biggest hurdle any space agency would face, is that these rockets are **lega
 
 **Fun Facts:**
 
-*   SpaceX was not the first company to land a rocket. It was actually **Jeff Bezoz’s Blue Origin.**
-*   But later SpaceX became the first company to land a **Orbital-ClassBooster back to earth.**
+- SpaceX was not the first company to land a rocket. It was actually **Jeff Bezoz’s Blue Origin.**
+- But later SpaceX became the first company to land a **Orbital-ClassBooster back to earth.**
 
 **More to read on -**
 

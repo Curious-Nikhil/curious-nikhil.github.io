@@ -8,12 +8,10 @@ featured: false
 draft: false
 tags:
   - electronics
-description:
-  Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
+description: Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
 ---
 
-**Inbuilt IIR (Infinite Impulse Response)**
--------------------------------------------
+## **Inbuilt IIR (Infinite Impulse Response)**
 
 ![captionless image](https://miro.medium.com/v2/resize:fit:1214/format:webp/0*oqH6vyQ_a471qrYi)
 

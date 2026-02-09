@@ -26,7 +26,6 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-2 pb-6", "border-b border-border"]}>
-      
       <div class="mt-3 flex justify-start">
         <img
           src={profilePhoto}
@@ -34,7 +33,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           class="h-32 w-32 object-cover sm:h-25 sm:w-25"
         />
       </div>
-      <h1 class="my-2 mb-0 inline-block text-4xl font-bold sm:my-8 sm:mb-2 sm:text-5xl">
+      <h1
+        class="my-2 mb-0 inline-block text-4xl font-bold sm:my-8 sm:mb-2 sm:text-5xl"
+      >
         Namaste!
       </h1>
       <a
@@ -51,31 +52,36 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         />
         <span class="sr-only">RSS Feed</span>
       </a>
-    
+
       <div class="overflow-hidden pb-2">
-        <img src={satellite} class="relative w-8 animate-move" alt="satellite" />
+        <img
+          src={satellite}
+          class="animate-move relative w-8"
+          alt="satellite"
+        />
       </div>
       <p>
-        Welcome to my page! I am a space enthusiast, astronomer, and an engineer building things that defy gravity.
-        Always curious, and working towards an Interstellar Career!
+        Welcome to my page! I am a space enthusiast, astronomer, and an engineer
+        building things that defy gravity. Always curious, and working towards
+        an Interstellar Career!
       </p>
       <p class="mt-2">
-        Dhruva Space | GSOC '20 | 
+        Dhruva Space | GSOC '20 |
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
           href="/posts/projects/tejas-model-rocket"
         >
-        Rocketeer
+          Rocketeer
         </LinkButton>
-         |
+        |
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
           href="/gallery"
         >
           Astronomer
         </LinkButton>
-        </p>
-        <p class="mt-2">
+      </p>
+      <p class="mt-2">
         Read the blog posts or check out
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
@@ -89,7 +95,9 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         SOCIALS.length > 0 && (
           <div class="mt-4 flex w-full items-center justify-between">
             <div class="flex flex-wrap items-center">
-              <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+              <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
+                Social Links:
+              </div>
               <Socials />
             </div>
             <div class="scout-container relative">
@@ -156,15 +164,25 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 <style>
   .animate-move {
     will-change: left, transform;
-    animation: move 10s linear infinite, rotate 30s linear infinite;
+    animation:
+      move 10s linear infinite,
+      rotate 30s linear infinite;
   }
   @keyframes move {
-    from { left: -50px; }
-    to { left: 100%; }
+    from {
+      left: -50px;
+    }
+    to {
+      left: 100%;
+    }
   }
   @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(120deg); }
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(120deg);
+    }
   }
 
   .scout-container::after {
@@ -186,33 +204,87 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
   @keyframes sos-blink {
     /* S (...): 3 dots */
-    0%, 2.5% { opacity: 1; } /* dot */
-    2.51%, 5% { opacity: 0; }
-    5.01%, 7.5% { opacity: 1; } /* dot */
-    7.51%, 10% { opacity: 0; }
-    10.01%, 12.5% { opacity: 1; } /* dot */
+    0%,
+    2.5% {
+      opacity: 1;
+    } /* dot */
+    2.51%,
+    5% {
+      opacity: 0;
+    }
+    5.01%,
+    7.5% {
+      opacity: 1;
+    } /* dot */
+    7.51%,
+    10% {
+      opacity: 0;
+    }
+    10.01%,
+    12.5% {
+      opacity: 1;
+    } /* dot */
 
     /* Pause between letters */
-    12.51%, 20% { opacity: 0; }
+    12.51%,
+    20% {
+      opacity: 0;
+    }
 
     /* O (---): 3 dashes */
-    20.01%, 27.5% { opacity: 1; } /* dash */
-    27.51%, 30% { opacity: 0; }
-    30.01%, 37.5% { opacity: 1; } /* dash */
-    37.51%, 40% { opacity: 0; }
-    40.01%, 47.5% { opacity: 1; } /* dash */
+    20.01%,
+    27.5% {
+      opacity: 1;
+    } /* dash */
+    27.51%,
+    30% {
+      opacity: 0;
+    }
+    30.01%,
+    37.5% {
+      opacity: 1;
+    } /* dash */
+    37.51%,
+    40% {
+      opacity: 0;
+    }
+    40.01%,
+    47.5% {
+      opacity: 1;
+    } /* dash */
 
     /* Pause between letters */
-    47.51%, 55% { opacity: 0; }
+    47.51%,
+    55% {
+      opacity: 0;
+    }
 
     /* S (...): 3 dots */
-    55.01%, 57.5% { opacity: 1; } /* dot */
-    57.51%, 60% { opacity: 0; }
-    60.01%, 62.5% { opacity: 1; } /* dot */
-    62.51%, 65% { opacity: 0; }
-    65.01%, 67.5% { opacity: 1; } /* dot */
+    55.01%,
+    57.5% {
+      opacity: 1;
+    } /* dot */
+    57.51%,
+    60% {
+      opacity: 0;
+    }
+    60.01%,
+    62.5% {
+      opacity: 1;
+    } /* dot */
+    62.51%,
+    65% {
+      opacity: 0;
+    }
+    65.01%,
+    67.5% {
+      opacity: 1;
+    } /* dot */
 
     /* Pause after SOS sequence */
-    67.51%, 100% { opacity: 0; }
+    67.51%,
+    100% {
+      opacity: 0;
+    }
   }
 </style>

@@ -3,7 +3,7 @@ layout: ../layouts/PortfolioLayout.astro
 title: Portfolio Gallery
 ---
 
-<!-- 
+<!--
   Since this is a Markdown file, we use HTML tags for the grid layout.
   Copy and paste the inner <div> block to add more photos.
 -->

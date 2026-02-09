@@ -2,15 +2,14 @@
 author: Nikhil
 pubDatetime: 2022-09-09T15:22:00Z
 modDatetime: 2022-09-10T16:52:45.934Z
-title:  A Comprehensive Guide to Mastering the Telescope — A Beginner’s Guide!
+title: A Comprehensive Guide to Mastering the Telescope — A Beginner’s Guide!
 slug: comprehensive-guide-for-celestron-telescope
 featured: true
 draft: false
 tags:
   - astronomy
 ogImage: ../../../assets/images/telescope.webp
-description:
-  Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
+description: Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
 ---
 
 # An Inspiring Preface 🔭
@@ -21,7 +20,6 @@ Now with a telescope, you have the best eye for the job, right?
 Well, telescopes are pretty simple until you encounter a problem. This guide should help you start fresh or learn new things to master your “eyes to the universe”
 
 # Table of Contents
-
 
 # How to use this guide?
 
@@ -37,7 +35,6 @@ You might encounter difficult problems for one reason or another, but always rem
 6. 🦺 Safety Guide
 7. 🤔 FAQ
 
-
 ## 1. Setup of the Telescope 🛠
 
 ![About Banner](/src/assets/images/telescope.webp)
@@ -47,7 +44,6 @@ In general, if you can’t see anything, one of these might be your problem: The
 1. You are pointing at the wrong thing. Use Stellarium or google sky map to find your desired object first. Then use the finder scope to align your telescope.
 2. Your focusing is off. Please test your telescope during the day to figure what the “focus” dial actually does.
 3. It’s also important to put the lens in the correct order.
-
 
 Again if you are seeing white light that mostly means it’s not in focus or you haven’t put the lens in the right order. (first to last, below)
 
@@ -84,8 +80,8 @@ Easy Objects 🌔 — Moon, Mars, Venus, Saturn, Jupiter.
 Deep Space Objects 🌌 — Andromeda Galaxy, Orion Nebula, Star Cluster — Pleiades.
 LEO 🛰 — Near earth satellites, ISS
 
-
 ## 4. Astronomy Journal
+
 ![About Banner](/src/assets/images/astro-journal-header.webp)
 
 Maintaining an Astronomy Journal is as important as keeping a record of the amazing things you see. Chances are most of the things you see won’t be captured via the camera. So the only way of keeping a record is to sketch it. You can use this template to start, later make your own if you would like to. 😄
@@ -113,6 +109,7 @@ The RPi Cam isn’t really ideal for astrophotography. The pixel resolution is e
 Also having to align and place the sensor at the right position is a nightmare, a simple solution would be to 3-D print this mount, from Thingiverse
 
 ## FAQ 🤔:
+
 1. Can I see galaxies?
 
 - Yes! You can see but you would need to have a clear night sky. I managed to see the Andromeda Galaxy with some light pollution with the same setup.
@@ -138,4 +135,3 @@ Also having to align and place the sensor at the right position is a nightmare, 
 ![About Banner](/src/assets/images/0_6s0tIJOOLdVtXKCJ.webp)
 
 Be the Galileo of your squad, spread the word about how awesome these simple pieces of equipment are. Invite them to use and allow and extend the knowledge of the heavens.
-

@@ -37,7 +37,7 @@ You might encounter difficult problems for one reason or another, but always rem
 
 ## 1. Setup of the Telescope 🛠
 
-![About Banner](/src/assets/images/telescope.webp)
+![About Banner](@/assets/images/telescope.webp)
 
 In general, if you can’t see anything, one of these might be your problem: The bellow only works when the setup is right.
 
@@ -54,7 +54,7 @@ The best thing to do is to use your telescope (set up) during the day and check 
 
 ## 2. First: Align the Finderscope
 
-![About Banner](/src/assets/images/finderscope.webp)
+![About Banner](@/assets/images/finderscope.webp)
 
 In a telescope with high magnification, the field of view (FOV) decreases quite a lot. This means it will get difficult to point at small objects in the sky as they drift. Enter Finderscope
 
@@ -70,7 +70,7 @@ Remember to never change the configuration you left it in, otherwise, it will be
 
 > Look up and point and you shall find something worthy
 
-![About Banner](/src/assets/images/celestrial-map.webp)
+![About Banner](@/assets/images/celestrial-map.webp)
 
 Ancient astronomers relied on star charts which were manually built over years to make sense of the wonders of heaven. We stand on the shoulders of giants and hundreds of years of innovation and progress. Put simply, you can download the entire star map on your smartphone right now, in seconds.
 
@@ -82,7 +82,7 @@ LEO 🛰 — Near earth satellites, ISS
 
 ## 4. Astronomy Journal
 
-![About Banner](/src/assets/images/astro-journal-header.webp)
+![About Banner](@/assets/images/astro-journal-header.webp)
 
 Maintaining an Astronomy Journal is as important as keeping a record of the amazing things you see. Chances are most of the things you see won’t be captured via the camera. So the only way of keeping a record is to sketch it. You can use this template to start, later make your own if you would like to. 😄
 
@@ -132,6 +132,6 @@ Also having to align and place the sensor at the right position is a nightmare, 
 
 ## Spread the Word!
 
-![About Banner](/src/assets/images/0_6s0tIJOOLdVtXKCJ.webp)
+![About Banner](@/assets/images/0_6s0tIJOOLdVtXKCJ.webp)
 
 Be the Galileo of your squad, spread the word about how awesome these simple pieces of equipment are. Invite them to use and allow and extend the knowledge of the heavens.

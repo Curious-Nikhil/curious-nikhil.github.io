@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-![About Banner](/public/about.png)
+![About Banner](/about.png)
 
 # Namaste! 🙏
 

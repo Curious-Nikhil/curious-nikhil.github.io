@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import beanGif from "@/assets/images/mr-bean-error.gif";
 import { SITE } from "@/config";
 ---
 
@@ -14,11 +15,8 @@ import { SITE } from "@/config";
     class="app-layout flex flex-1 items-center justify-center"
   >
     <div class="mb-14 flex flex-col items-center justify-center">
-      <img
-        src="src/assets/images/mr-bean-error.gif"
-        alt="404"
-        class="mb-8 rounded"
-      />
+    <img src={beanGif.src} alt="404" class="mb-8 rounded" />
+
       <h1 class="text-9xl font-bold text-accent">404</h1>
       <span aria-hidden="true">¯\_(ツ)_/¯</span>
       <p class="mt-4 text-2xl sm:text-3xl">Page Not Found</p>

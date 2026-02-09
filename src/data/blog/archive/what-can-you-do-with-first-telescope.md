@@ -24,7 +24,7 @@ Hubble is a really powerful telescope. Impossible to get these images from your 
 
 # Why I do what I do?
 
-![About Banner](/src/assets/images/tele-me.webp)
+![About Banner](@/assets/images/tele-me.webp)
 
 **Off course**, you won’t be able to get this level of detail, colour accuracy and magnification on your 100$ Telescope. Hubble’s beautiful space pictures were the driving force, that made me get into astronomy. But soon, I realized the limitations of my device.
 It’s very important to note that it’s the experience that actually counts.

@@ -1,0 +1,218 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import satellite from "@/assets/images/satellite.svg?url";
+import scout from "@/assets/images/scout.svg?url";
+import profilePhoto from "@/assets/images/profile.png?url";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class:list={["pt-2 pb-6", "border-b border-border"]}>
+      
+      <div class="mt-3 flex justify-start">
+        <img
+          src={profilePhoto}
+          alt="Profile photo"
+          class="h-32 w-32 object-cover sm:h-25 sm:w-25"
+        />
+      </div>
+      <h1 class="my-2 mb-0 inline-block text-4xl font-bold sm:my-8 sm:mb-2 sm:text-5xl">
+        Namaste!
+      </h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="inline-block"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
+    
+      <div class="overflow-hidden pb-2">
+        <img src={satellite} class="relative w-8 animate-move" alt="satellite" />
+      </div>
+      <p>
+        Welcome to my page! I am a space enthusiast, astronomer, and an engineer building things that defy gravity.
+        Always curious, and working towards an Interstellar Career!
+      </p>
+      <p class="mt-2">
+        Dhruva Space | GSOC '20 | 
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/posts/projects/tejas-model-rocket"
+        >
+        Rocketeer
+        </LinkButton>
+         |
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/gallery"
+        >
+          Astronomer
+        </LinkButton>
+        </p>
+        <p class="mt-2">
+        Read the blog posts or check out
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/about"
+        >
+          About
+        </LinkButton> page for more info.
+      </p>
+      {
+        // only display if at least one social link is enabled
+        SOCIALS.length > 0 && (
+          <div class="mt-4 flex w-full items-center justify-between">
+            <div class="flex flex-wrap items-center">
+              <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+              <Socials />
+            </div>
+            <div class="scout-container relative">
+              <img src={scout} class="w-12" alt="scout" />
+            </div>
+          </div>
+        )
+      }
+    </section>
+
+    {
+      featuredPosts.length > 0 && (
+        <section
+          id="featured"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-b border-border": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <ul>
+            {featuredPosts.map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>
+
+<style>
+  .animate-move {
+    will-change: left, transform;
+    animation: move 10s linear infinite, rotate 30s linear infinite;
+  }
+  @keyframes move {
+    from { left: -50px; }
+    to { left: 100%; }
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(120deg); }
+  }
+
+  .scout-container::after {
+    content: "";
+    /* Position the beacon on the scout's antenna */
+    position: absolute;
+    top: 2px;
+    left: 12px;
+    /* Beacon appearance */
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: red;
+    /* Add a subtle glow */
+    box-shadow: 0 0 4px 1px red;
+    /* SOS Morse code animation */
+    animation: sos-blink 4s linear infinite;
+  }
+
+  @keyframes sos-blink {
+    /* S (...): 3 dots */
+    0%, 2.5% { opacity: 1; } /* dot */
+    2.51%, 5% { opacity: 0; }
+    5.01%, 7.5% { opacity: 1; } /* dot */
+    7.51%, 10% { opacity: 0; }
+    10.01%, 12.5% { opacity: 1; } /* dot */
+
+    /* Pause between letters */
+    12.51%, 20% { opacity: 0; }
+
+    /* O (---): 3 dashes */
+    20.01%, 27.5% { opacity: 1; } /* dash */
+    27.51%, 30% { opacity: 0; }
+    30.01%, 37.5% { opacity: 1; } /* dash */
+    37.51%, 40% { opacity: 0; }
+    40.01%, 47.5% { opacity: 1; } /* dash */
+
+    /* Pause between letters */
+    47.51%, 55% { opacity: 0; }
+
+    /* S (...): 3 dots */
+    55.01%, 57.5% { opacity: 1; } /* dot */
+    57.51%, 60% { opacity: 0; }
+    60.01%, 62.5% { opacity: 1; } /* dot */
+    62.51%, 65% { opacity: 0; }
+    65.01%, 67.5% { opacity: 1; } /* dot */
+
+    /* Pause after SOS sequence */
+    67.51%, 100% { opacity: 0; }
+  }
+</style>

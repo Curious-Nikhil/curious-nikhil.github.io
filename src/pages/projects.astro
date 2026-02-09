@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+
+// Filter posts that have the "project" tag
+const projects = sortedPosts.filter(({ data }) => data.tags.includes("project"));
+---
+
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header />
+  <main id="main-content" class="app-layout">
+    <section id="projects" class="pt-8 pb-6">
+      <h1 class="text-2xl font-semibold tracking-wide sm:text-3xl">Projects</h1>
+      <p class="mt-2 mb-6 italic">
+        A collection of my projects.
+      </p>
+      <ul>
+        {
+          projects.length > 0 ? (
+            projects.map((data) => <Card variant="h3" {...data} />)
+          ) : (
+            <p>No projects found. Add a "project" tag to your posts to see them here.</p>
+          )
+        }
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>

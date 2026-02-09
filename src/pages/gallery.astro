@@ -1,0 +1,46 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+import { Image } from "astro:assets";
+
+// Import images from src/assets/gallery
+const imageFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.{jpeg,jpg,png,gif}', { eager: true });
+const galleryImages = Object.entries(imageFiles).map(([path, img]) => {
+  const name = path.split('/').pop()?.split('.')[0] ?? '';
+  const title = name.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  return { image: img.default, title };
+});
+---
+
+<Layout title={`Gallery | ${SITE.title}`}>
+  <Header />
+  <main id="main-content" class="app-layout">
+    <section id="gallery" class="pt-8 pb-6">
+      <h1 class="text-2xl font-semibold tracking-wide sm:text-3xl mb-6">Gallery</h1>
+      
+      <div class="grid grid-cols-3 gap-4 sm:gap-6">
+        {
+          galleryImages.map(({ image, title }) => (
+            <div class="flex flex-col">
+              <div class="relative aspect-square overflow-hidden bg-skin-card-muted hover:opacity-90 transition-opacity rounded-md">
+                <Image 
+                    src={image} 
+                    alt={title} 
+                    class="h-full w-full object-cover"
+                />
+              </div>
+              <p class="mt-2 text-center text-sm truncate">{title}</p>
+            </div>
+          ))
+        }
+      </div>
+      
+      {galleryImages.length === 0 && (
+        <p class="italic mt-4">No images found in src/assets/gallery.</p>
+      )}
+    </section>
+  </main>
+  <Footer />
+</Layout>

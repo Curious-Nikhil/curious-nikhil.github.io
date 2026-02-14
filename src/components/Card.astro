@@ -6,14 +6,33 @@ import Datetime from "./Datetime.astro";
 
 type Props = {
   variant?: "h2" | "h3";
+  showThumbnail?: boolean;
 } & CollectionEntry<"blog">;
 
-const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+const {
+  variant: Heading = "h2",
+  showThumbnail = false,
+  id,
+  data,
+  filePath,
+} = Astro.props;
 
-const { title, description, ...props } = data;
+const { title, description, ogImage, ...props } = data;
+const thumbnailSrc =
+  typeof ogImage === "string" ? ogImage : ogImage?.src;
 ---
 
 <li class="my-6">
+  {
+    showThumbnail && thumbnailSrc && (
+      <img
+        src={thumbnailSrc}
+        alt={`${title} thumbnail`}
+        class="mb-3 block h-auto w-full rounded-md"
+        loading="lazy"
+      />
+    )
+  }
   <a
     href={getPath(id, filePath)}
     class:list={[

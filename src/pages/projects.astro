@@ -25,7 +25,7 @@ const projects = sortedPosts.filter(({ data }) =>
       <ul>
         {
           projects.length > 0 ? (
-            projects.map(data => <Card variant="h3" {...data} />)
+            projects.map(data => <Card variant="h3" showThumbnail {...data} />)
           ) : (
             <p>
               No projects found. Add a "project" tag to your posts to see them

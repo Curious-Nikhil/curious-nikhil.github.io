@@ -4,19 +4,103 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 import { Image } from "astro:assets";
+import fs from "node:fs/promises";
+import path from "node:path";
+import exifr from "exifr";
+
+type ExifDetails = {
+  title?: string;
+  capturedAt?: string;
+  camera?: string;
+  lens?: string;
+  settings?: string;
+  gps?: string;
+};
+
+const normalizeExifText = (value: unknown) => {
+  if (!value) return undefined;
+  if (typeof value === "string") return value.trim() || undefined;
+  if (Array.isArray(value) && value.every(v => typeof v === "number")) {
+    const decoded = String.fromCharCode(...value).replace(/\0/g, "").trim();
+    return decoded || undefined;
+  }
+  return undefined;
+};
+
+const formatExposure = (value?: number) => {
+  if (!value || value <= 0) return undefined;
+  if (value >= 1) return `${value.toFixed(1)}s`;
+  return `1/${Math.round(1 / value)}s`;
+};
+
+const formatExifDate = (value?: Date | string) => {
+  if (!value) return undefined;
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return undefined;
+  return date.toLocaleString();
+};
+
+const extractExif = async (filePath: string): Promise<ExifDetails | null> => {
+  try {
+    const absolutePath = path.join(process.cwd(), filePath.replace(/^\//, ""));
+    const fileBuffer = await fs.readFile(absolutePath);
+    const exif = await exifr.parse(fileBuffer, {
+      tiff: true,
+      ifd0: {},
+      exif: true,
+      gps: true,
+    });
+
+    if (!exif) return null;
+
+    const aperture =
+      typeof exif.FNumber === "number" ? `f/${exif.FNumber}` : undefined;
+    const shutter = formatExposure(exif.ExposureTime);
+    const iso = exif.ISO ? `ISO ${exif.ISO}` : undefined;
+    const focal =
+      typeof exif.FocalLength === "number" ? `${exif.FocalLength}mm` : undefined;
+    const settings = [aperture, shutter, iso, focal].filter(Boolean).join(" | ");
+
+    const camera = [exif.Make, exif.Model].filter(Boolean).join(" ");
+    const latitude =
+      typeof exif.latitude === "number" ? exif.latitude.toFixed(5) : undefined;
+    const longitude =
+      typeof exif.longitude === "number" ? exif.longitude.toFixed(5) : undefined;
+    const gps = latitude && longitude ? `${latitude}, ${longitude}` : undefined;
+
+    const details: ExifDetails = {
+      title: normalizeExifText(
+        exif.Title ?? exif.XPTitle ?? exif.ImageDescription ?? exif.ObjectName
+      ),
+      capturedAt: formatExifDate(exif.DateTimeOriginal ?? exif.CreateDate),
+      camera: camera || undefined,
+      lens: exif.LensModel || undefined,
+      settings: settings || undefined,
+      gps,
+    };
+
+    return Object.values(details).some(Boolean) ? details : null;
+  } catch {
+    return null;
+  }
+};
 
 // Import images from src/assets/gallery
 const imageFiles = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/gallery/*.{jpeg,jpg,png,gif}",
   { eager: true }
 );
-const galleryImages = Object.entries(imageFiles).map(([path, img]) => {
-  const name = path.split("/").pop()?.split(".")[0] ?? "";
-  const title = name
-    .replace(/[-_]/g, " ")
-    .replace(/\b\w/g, c => c.toUpperCase());
-  return { image: img.default, title };
-});
+const galleryImages = await Promise.all(
+  Object.entries(imageFiles).map(async ([filePath, img]) => {
+    const name = filePath.split("/").pop()?.split(".")[0] ?? "";
+    const exif = await extractExif(filePath);
+    const fallbackTitle = name
+      .replace(/[-_]/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+    const title = exif?.title || fallbackTitle;
+    return { image: img.default, title, exif };
+  })
+);
 ---
 
 <Layout title={`Gallery | ${SITE.title}`}>
@@ -29,19 +113,60 @@ const galleryImages = Object.entries(imageFiles).map(([path, img]) => {
 
       <div class="grid grid-cols-3 gap-4 sm:gap-6">
         {
-          galleryImages.map(({ image, title }) => (
+          galleryImages.map(({ image, title, exif }) => (
             <div class="flex flex-col">
-              <div class="bg-skin-card-muted relative aspect-square overflow-hidden rounded-md transition-opacity hover:opacity-90">
+              <button
+                type="button"
+                class="bg-skin-card-muted relative aspect-square overflow-hidden rounded-md p-2 text-left transition-opacity hover:opacity-90"
+                data-lightbox-trigger
+                data-lightbox-src={image.src}
+                data-lightbox-title={title}
+                data-lightbox-exif={JSON.stringify(exif)}
+                aria-label={`Open ${title} in full view`}
+              >
                 <Image
                   src={image}
                   alt={title}
-                  class="h-full w-full object-cover"
+                  class="h-full w-full object-contain"
                 />
-              </div>
+              </button>
               <p class="mt-2 truncate text-center text-sm">{title}</p>
             </div>
           ))
         }
+      </div>
+
+      <div
+        id="gallery-lightbox"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 p-4"
+        aria-hidden="true"
+      >
+        <div class="relative w-full max-w-6xl">
+          <button
+            id="gallery-lightbox-close"
+            type="button"
+            class="absolute -top-10 right-0 rounded px-2 py-1 text-3xl leading-none text-white"
+            aria-label="Close full view"
+          >
+            &times;
+          </button>
+          <img
+            id="gallery-lightbox-image"
+            src=""
+            alt=""
+            class="mx-auto max-h-[85vh] max-w-full rounded-md object-contain"
+          />
+          <p
+            id="gallery-lightbox-caption"
+            class="mt-3 text-center text-sm text-white/90"
+          >
+          </p>
+          <div
+            id="gallery-lightbox-exif"
+            class="mx-auto mt-3 w-full max-w-3xl rounded-md bg-white/10 p-3 text-xs text-white/95"
+          >
+          </div>
+        </div>
       </div>
 
       {
@@ -53,3 +178,116 @@ const galleryImages = Object.entries(imageFiles).map(([path, img]) => {
   </main>
   <Footer />
 </Layout>
+
+<script is:inline data-astro-rerun>
+  function initGalleryLightbox() {
+    const gallery = document.getElementById("gallery");
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImage = document.getElementById("gallery-lightbox-image");
+    const lightboxCaption = document.getElementById("gallery-lightbox-caption");
+    const lightboxExif = document.getElementById("gallery-lightbox-exif");
+    const closeButton = document.getElementById("gallery-lightbox-close");
+
+    if (!gallery || !lightbox || !lightboxImage || !lightboxCaption || !lightboxExif) return;
+    if (lightbox.dataset.bound === "true") return;
+    lightbox.dataset.bound = "true";
+    let lastTrigger = null;
+
+    function renderExif(exifRaw) {
+      lightboxExif.textContent = "";
+      if (!exifRaw || exifRaw === "null") {
+        lightboxExif.textContent = "No EXIF details available.";
+        return;
+      }
+
+      let exif;
+      try {
+        exif = JSON.parse(exifRaw);
+      } catch {
+        lightboxExif.textContent = "No EXIF details available.";
+        return;
+      }
+
+      const rows = [
+        ["Captured", exif.capturedAt],
+        ["Camera", exif.camera],
+        ["Lens", exif.lens],
+        ["Settings", exif.settings],
+        ["GPS", exif.gps],
+      ].filter(([, value]) => Boolean(value));
+
+      if (rows.length === 0) {
+        lightboxExif.textContent = "No EXIF details available.";
+        return;
+      }
+
+      const list = document.createElement("ul");
+      list.className = "grid grid-cols-1 gap-1 sm:grid-cols-2";
+      rows.forEach(([label, value]) => {
+        const item = document.createElement("li");
+        item.textContent = `${label}: ${value}`;
+        list.appendChild(item);
+      });
+      lightboxExif.appendChild(list);
+    }
+
+    function openLightbox(src, title, exifRaw, trigger) {
+      lastTrigger = trigger;
+      lightboxImage.setAttribute("src", src);
+      lightboxImage.setAttribute("alt", title);
+      lightboxCaption.textContent = title;
+      renderExif(exifRaw);
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      if (closeButton instanceof HTMLElement) closeButton.focus();
+    }
+
+    function closeLightbox() {
+      const activeEl = document.activeElement;
+      if (activeEl instanceof HTMLElement && lightbox.contains(activeEl)) {
+        activeEl.blur();
+      }
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.setAttribute("src", "");
+      lightboxImage.setAttribute("alt", "");
+      lightboxCaption.textContent = "";
+      lightboxExif.textContent = "";
+      document.body.style.overflow = "";
+      if (lastTrigger instanceof HTMLElement) {
+        lastTrigger.focus();
+      }
+    }
+
+    gallery.addEventListener("click", event => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest("[data-lightbox-trigger]");
+      if (!trigger) return;
+      const src = trigger.getAttribute("data-lightbox-src");
+      const title = trigger.getAttribute("data-lightbox-title") ?? "Image";
+      const exifRaw = trigger.getAttribute("data-lightbox-exif");
+      if (!src) return;
+      openLightbox(src, title, exifRaw, trigger);
+    });
+
+    if (closeButton) {
+      closeButton.addEventListener("click", closeLightbox);
+    }
+
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && lightbox.classList.contains("flex")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener("astro:page-load", initGalleryLightbox);
+</script>

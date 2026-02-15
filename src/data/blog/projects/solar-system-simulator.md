@@ -8,6 +8,7 @@ draft: false
 tags:
   - project
 description: This is a Solar System Simulator. It simulates the motion of planets in realtime using some pretty complex maths and also is able to plan interplanatry missions
+ogImage: ../../../assets/images/solarsim-view.webp
 ---
 
 # Solar-System-Simulator

@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: About
+heroImage: /about.png
 ---
 
 ![About Banner](/about.png)

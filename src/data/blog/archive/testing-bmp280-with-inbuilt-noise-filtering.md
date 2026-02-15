@@ -5,10 +5,10 @@ modDatetime: 2019-07-10T16:52:45.934Z
 title: Testing BMP280 with InBuilt Noise Filtering
 slug: testing-bmp280-with-inbuilt-noise-filtering
 featured: false
-draft: false
 tags:
   - electronics
-description: Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
+description: "Testing BMP280 for rocket altitude detection and comparing results with / without various filtering options. "
+heroImage: ../../../assets/images/bmp280-img.webp
 ---
 
 ## **Inbuilt IIR (Infinite Impulse Response)**

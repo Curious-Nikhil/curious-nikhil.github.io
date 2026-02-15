@@ -1,0 +1,89 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": {
+    "path": "src/assets",
+    "relative": true
+  },
+  "frontMatter.content.pageFolders": [
+    {
+      "path": "[[workspace]]/src/pages",
+      "title": "pages"
+    },
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/data/blog"
+    },
+    {
+      "title": "assets",
+      "path": "[[workspace]]/src/assets"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "pubDate",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "OG Image",
+          "name": "ogImage",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "author",
+          "name": "author",
+          "type": "string"
+        },
+        {
+          "title": "pubDatetime",
+          "name": "pubDatetime",
+          "type": "datetime"
+        },
+        {
+          "title": "modDatetime",
+          "name": "modDatetime",
+          "type": "datetime"
+        },
+        {
+          "title": "featured",
+          "name": "featured",
+          "type": "boolean"
+        },
+        {
+          "title": "draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags"
+        }
+      ]
+    }
+  ],
+  "frontMatter.website.host": "curiousnikhil.space"
+}

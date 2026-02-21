@@ -8,7 +8,7 @@ draft: false
 tags:
   - project
 ogImage: ../../../assets/images/projects/results-thumbnail.png
-description: Tejas is a ground-up model rocketry project spanning over a year of development. It encompasses the creation of essential infrastructure, including a custom thrust bench, fault-tolerant flight computer, and safety-tested rocket motors.
+description: Tejas is a ground-up model rocket. It encompasses the creation a custom thrust bench, fault-tolerant flight computer, and safety-tested rocket motors.
 ---
 
 ## Introduction

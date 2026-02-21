@@ -7,8 +7,8 @@ featured: false
 draft: false
 tags:
   - project
-ogImage: ../../../assets/images/projects/kragon/Balloon-sat_portfolio.png
 description: Humans have been intrigued by the question of whether life exists out there since our inception. That fundamental curiosity inspired great people to go where no man has gone before.
+ogImage: ../../../assets/images/projects/kragon/kragon_thumnail.png
 ---
 
 # Introduction

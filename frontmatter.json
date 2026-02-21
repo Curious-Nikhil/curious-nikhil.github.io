@@ -3,7 +3,7 @@
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.content.publicFolder": {
-    "path": "src/assets",
+    "path": "src/",
     "relative": true
   },
   "frontMatter.content.pageFolders": [
@@ -13,18 +13,23 @@
     },
     {
       "title": "blog",
-      "path": "[[workspace]]/src/data/blog"
+      "path": "[[workspace]]/src/data/blog",
+      "previewPath": "posts/{{pathToken.relPath}}",
+      "trailingSlash": false
     },
     {
       "title": "assets",
       "path": "[[workspace]]/src/assets"
+    },
+    {
+      "title": "archive",
+      "path": "[[workspace]]/src/data/blog/archive"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "default",
       "pageBundle": false,
-      "previewPath": "'blog'",
       "filePrefix": null,
       "clearEmpty": true,
       "fields": [
@@ -41,7 +46,7 @@
         },
         {
           "title": "Publishing date",
-          "name": "pubDate",
+          "name": "pubDatetime",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true
@@ -56,11 +61,6 @@
           "title": "author",
           "name": "author",
           "type": "string"
-        },
-        {
-          "title": "pubDatetime",
-          "name": "pubDatetime",
-          "type": "datetime"
         },
         {
           "title": "modDatetime",
@@ -87,3 +87,4 @@
   ],
   "frontMatter.website.host": "curiousnikhil.space"
 }
+

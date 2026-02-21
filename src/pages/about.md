@@ -2,6 +2,10 @@
 layout: ../layouts/AboutLayout.astro
 title: About
 heroImage: /about.png
+ogImage: ../assets/images/about.png
+description: |
+  What began with Star Wars, shuttle launches, and late-night skywatching turned into real projects.
+author: Nikhil
 ---
 
 ![About Banner](/about.png)

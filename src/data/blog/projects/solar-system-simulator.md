@@ -25,7 +25,17 @@ This is a Solar System Simulator. It simulates the motion of planets in realtime
 
 Am a big fan of space flight and the journey it has still to cover. **Nasa's Curiosity Rover** or **ISRO's Martian Orbital Mission** truely inspired me,of how a group of like minded people can set out to do something impossible on the face of the planet.I love reading books, especially sci fi books, one of favourite is [The Martian](https://www.goodreads.com/book/show/18007564-the-martian). Andy Weir the author of **The Martian**, used a physics simulator to simulate the motion of his fictional ship (Ares V) with respect to earth and mars, so that he could write in accurate dates in his book *(Watch the video below for more context)*
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gMfuLtjgzA8?si=YAn3eVQCfFAnaX6O&amp;start=820" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; height: 0;">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/gMfuLtjgzA8?si=YAn3eVQCfFAnaX6O&amp;start=820"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; inset: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
 
 That was the starting point of this project. Back then, it didnt make any sense to start learning programming, but now since I had a goal to achieve, everything was different. _Rest is history..._
 
@@ -142,7 +152,17 @@ HARD
 
 If it wasn’t for Nicolaus Copernicus, we would still believed in the Geocentric system. He formulated the model of the universe, where the Sun was in centre, instead of Earth, around which other planets revolved including Earth. It was not readily accepted, by people back in his time. But nowadays taken for granted. Copernicus’s discovery gave rise to the very start of Heliocentric Coordinate System, which is basically GPS for planets in real-time.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/W3yv7ZNc6Ss?si=40HZIJCodNk6gOKj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="position: relative; width: 100%; max-width: 100%; padding-bottom: 56.25%; height: 0;">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/W3yv7ZNc6Ss?si=40HZIJCodNk6gOKj"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; inset: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
 
 # EASY - Circular Orbits
 
@@ -262,4 +282,3 @@ In astronomy, inclination is an angle between some direction and a standard plan
 
 the angle between the orbit of a planet or other celestial body and the base plane of the coordinate system (usually the ecliptic for bodies in the Solar System). The inclination is one of the orbital elements.
 the angle that the magnetic field makes with the local surface.
-

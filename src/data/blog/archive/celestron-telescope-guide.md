@@ -135,3 +135,7 @@ Also having to align and place the sensor at the right position is a nightmare, 
 ![About Banner](@/assets/images/0_6s0tIJOOLdVtXKCJ.webp)
 
 Be the Galileo of your squad, spread the word about how awesome these simple pieces of equipment are. Invite them to use and allow and extend the knowledge of the heavens.
+
+## Gallery
+
+<a data-flickr-embed="true" data-footer="true" href="https://www.flickr.com/photos/spacetimeweb/albums/72157682627406715" title="Telescope"><img src="https://live.staticflickr.com/2950/33256245593_dd7a5a6d38_h.jpg" width="1200" height="1600" alt="Telescope"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>

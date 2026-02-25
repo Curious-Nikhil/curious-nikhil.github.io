@@ -9,6 +9,7 @@ draft: false
 tags:
   - space
 description: Never before a homo sapien had the ability to explore the vastness that is the universe right from their backyard.
+ogImage: ../../../assets/images/isro-rocket.webp
 ---
 
 ![GSLV Mk III-D1 Successfully launches GSAT-19](https://miro.medium.com/v2/resize:fit:4800/format:webp/1*DJDqTXNHwGXmukaCA8cVvA.jpeg)

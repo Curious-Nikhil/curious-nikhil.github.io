@@ -1,0 +1,58 @@
+backend:
+  name: github
+  repo: Curious-Nikhil/curious-nikhil.github.io
+  branch: master
+
+# Enable local backend proxy when running decap-server or sveltia local proxy
+local_backend: true
+
+media_folder: "src/assets/images"
+public_folder: "/src/assets/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/data/blog"
+    create: true
+    nested:
+      depth: 2
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDatetime", widget: "datetime" }
+      - { label: "Modified Date", name: "modDatetime", widget: "datetime", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "Nikhil" }
+      - { label: "Slug", name: "slug", widget: "string", required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["others"] }
+      - { label: "OG Image", name: "ogImage", widget: "image", required: false }
+      - { label: "Canonical URL", name: "canonicalURL", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "about"
+        label: "About Page"
+        file: "src/pages/about.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "../layouts/AboutLayout.astro" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Image", name: "heroImage", widget: "string", required: false }
+          - { label: "OG Image", name: "ogImage", widget: "image", required: false }
+          - { label: "Author", name: "author", widget: "string", default: "Nikhil" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - name: "links"
+        label: "Links Page"
+        file: "src/pages/links.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "../layouts/LinksLayout.astro" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Author", name: "author", widget: "string", default: "Nikhil" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+

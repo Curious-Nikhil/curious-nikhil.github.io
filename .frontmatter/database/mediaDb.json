@@ -1,1 +1,23 @@
-{"users":{"nikhil":{"documents":{"github":{"curious-nikhil.github.io":{"src":{"assets":{"images":{}},"data":{"blog":{}}}}}}}}}
+{
+  "src": {
+    "pages": {}
+  },
+  "users": {
+    "nikhil": {
+      "documents": {
+        "github": {
+          "curious-nikhil.github.io": {
+            "src": {
+              "assets": {
+                "images": {}
+              },
+              "data": {
+                "blog": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

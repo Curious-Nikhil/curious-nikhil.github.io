@@ -8,6 +8,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import exifr from "exifr";
 
+import galleryMetadata from "@/data/gallery.json";
+
 type ExifDetails = {
   title?: string;
   capturedAt?: string;
@@ -16,6 +18,13 @@ type ExifDetails = {
   settings?: string;
   gps?: string;
 };
+
+type ImageMeta = {
+  title?: string;
+  caption?: string;
+};
+
+const galleryData = galleryMetadata as Record<string, ImageMeta>;
 
 const normalizeExifText = (value: unknown) => {
   if (!value) return undefined;
@@ -92,13 +101,20 @@ const imageFiles = import.meta.glob<{ default: ImageMetadata }>(
 );
 const galleryImages = await Promise.all(
   Object.entries(imageFiles).map(async ([filePath, img]) => {
-    const name = filePath.split("/").pop()?.split(".")[0] ?? "";
+    const filename = filePath.split("/").pop() ?? "";
+    const name = filename.split(".")[0] ?? "";
     const exif = await extractExif(filePath);
+    
+    // Look up custom metadata by full filename (e.g. "Sunset at Nandi Hills.jpg") or base name ("Sunset at Nandi Hills")
+    const customMeta = galleryData[filename] || galleryData[name];
+
     const fallbackTitle = name
       .replace(/[-_]/g, " ")
       .replace(/\b\w/g, c => c.toUpperCase());
-    const title = exif?.title || fallbackTitle;
-    return { image: img.default, title, exif };
+    const title = customMeta?.title || exif?.title || fallbackTitle;
+    const caption = customMeta?.caption;
+
+    return { image: img.default, title, caption, exif };
   })
 );
 ---
@@ -113,7 +129,7 @@ const galleryImages = await Promise.all(
 
       <div class="grid grid-cols-3 gap-4 sm:gap-6">
         {
-          galleryImages.map(({ image, title, exif }) => (
+          galleryImages.map(({ image, title, caption, exif }) => (
             <div class="flex flex-col">
               <button
                 type="button"
@@ -121,6 +137,7 @@ const galleryImages = await Promise.all(
                 data-lightbox-trigger
                 data-lightbox-src={image.src}
                 data-lightbox-title={title}
+                data-lightbox-caption={caption ?? ""}
                 data-lightbox-exif={JSON.stringify(exif)}
                 aria-label={`Open ${title} in full view`}
               >
@@ -156,11 +173,14 @@ const galleryImages = await Promise.all(
             alt=""
             class="mx-auto max-h-[85vh] max-w-full rounded-md object-contain"
           />
-          <p
-            id="gallery-lightbox-caption"
-            class="mt-3 text-center text-sm text-white/90"
-          >
-          </p>
+          <div class="mx-auto mt-3 max-w-3xl text-center text-white">
+            <h2 id="gallery-lightbox-title" class="text-base font-medium"></h2>
+            <p
+              id="gallery-lightbox-caption"
+              class="mt-1 text-sm text-white/80 italic hidden"
+            >
+            </p>
+          </div>
           <div
             id="gallery-lightbox-exif"
             class="mx-auto mt-3 w-full max-w-3xl rounded-md bg-white/10 p-3 text-xs text-white/95"
@@ -184,6 +204,7 @@ const galleryImages = await Promise.all(
     const gallery = document.getElementById("gallery");
     const lightbox = document.getElementById("gallery-lightbox");
     const lightboxImage = document.getElementById("gallery-lightbox-image");
+    const lightboxTitle = document.getElementById("gallery-lightbox-title");
     const lightboxCaption = document.getElementById("gallery-lightbox-caption");
     const lightboxExif = document.getElementById("gallery-lightbox-exif");
     const closeButton = document.getElementById("gallery-lightbox-close");
@@ -231,11 +252,18 @@ const galleryImages = await Promise.all(
       lightboxExif.appendChild(list);
     }
 
-    function openLightbox(src, title, exifRaw, trigger) {
+    function openLightbox(src, title, caption, exifRaw, trigger) {
       lastTrigger = trigger;
       lightboxImage.setAttribute("src", src);
       lightboxImage.setAttribute("alt", title);
-      lightboxCaption.textContent = title;
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (caption) {
+        lightboxCaption.textContent = caption;
+        lightboxCaption.classList.remove("hidden");
+      } else {
+        lightboxCaption.textContent = "";
+        lightboxCaption.classList.add("hidden");
+      }
       renderExif(exifRaw);
       lightbox.classList.remove("hidden");
       lightbox.classList.add("flex");
@@ -254,7 +282,9 @@ const galleryImages = await Promise.all(
       lightbox.setAttribute("aria-hidden", "true");
       lightboxImage.setAttribute("src", "");
       lightboxImage.setAttribute("alt", "");
+      if (lightboxTitle) lightboxTitle.textContent = "";
       lightboxCaption.textContent = "";
+      lightboxCaption.classList.add("hidden");
       lightboxExif.textContent = "";
       document.body.style.overflow = "";
       if (lastTrigger instanceof HTMLElement) {
@@ -269,9 +299,10 @@ const galleryImages = await Promise.all(
       if (!trigger) return;
       const src = trigger.getAttribute("data-lightbox-src");
       const title = trigger.getAttribute("data-lightbox-title") ?? "Image";
+      const caption = trigger.getAttribute("data-lightbox-caption") || "";
       const exifRaw = trigger.getAttribute("data-lightbox-exif");
       if (!src) return;
-      openLightbox(src, title, exifRaw, trigger);
+      openLightbox(src, title, caption, exifRaw, trigger);
     });
 
     if (closeButton) {

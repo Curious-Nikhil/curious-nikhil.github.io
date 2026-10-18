@@ -8,7 +8,7 @@ description: |
 author: Nikhil
 ---
 
-![About Banner](/about.png)
+<img src="/android-chrome-512x512.png" alt="Icon" width="128" height="128" class="!ml-0 !mr-auto w-32 h-32" />
 
 # Namaste! 🙏
 
@@ -21,3 +21,5 @@ I am learning new things every day and am so glad to be part of the space scienc
 This site is my lab notebook on the internet: experiments, project breakdowns, lessons learned, and occasional failures that taught me more than success ever did.
 
 I’m here to keep learning, keep shipping, and keep looking up . If you’re into space, science, and building ambitious things from scratch, you’ll feel at home here. Feel free to DM over on my socials!
+
+![About Banner](/about.png)

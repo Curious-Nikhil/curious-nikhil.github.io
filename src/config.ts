@@ -2,9 +2,9 @@ export const SITE = {
   website: "https://curiousnikhil.space", // replace this with your deployed domain
   author: "Nikhil Mishra",
   profile: "https://curiousnikhil.space",
-  desc: "A curious blog for curious beings...",
+  desc: "A curious blog for curious beings. Covers project breakdowns, satellite tech, model rockets, experiments and essays about the future. Welcome to one of your many stops in our rabbit hole. Enjoy!",
   title: "Curious Nikhil",
-  ogImage: "about.png",
+  ogImage: "android-chrome-512x512.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,

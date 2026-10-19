@@ -17,9 +17,18 @@ ogImage: ../../../assets/images/solarsim-view.webp
 
 This is a Solar System Simulator. It simulates the motion of planets in realtime using some pretty complex maths and also is able to plan **interplanatry missions** _(not yet)_
 
-[LINK TO PROGRAM](https://curious-nikhil.github.io/Solar-System-Simulator/SSS_V5.0_Hohmanns%20Transfer/)
+## Live Simulation
 
-![Solar System Animated](solar-system-animated.gif)
+<div class="flex justify-center">
+  <iframe
+    src="https://www.khanacademy.org/computer-programming/solar-system-simulator-30/5409628738617344/embedded?buttons=yes&editor=no&author=yes&embed=yes"
+    width="100%"
+    height="700"
+    style="border: 0; max-width: 800px; aspect-ratio: 4/3;"
+  ></iframe>
+</div>
+
+[LINK TO PROGRAM](https://curious-nikhil.github.io/Solar-System-Simulator/SSS_V5.0_Hohmanns%20Transfer/)
 
 ## Why am I doing it?
 

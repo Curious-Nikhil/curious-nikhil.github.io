@@ -8,6 +8,13 @@ pnpm run dev
 ```
 Runs the site at `http://localhost:4321`.
 
+### Deployment security headers
+
+The Docker image serves the built site with basic security headers configured in
+`nginx-security-headers.conf`. The production site is deployed to GitHub Pages,
+which does not read that Nginx configuration. To serve equivalent headers on
+GitHub Pages, configure them at a CDN or reverse proxy in front of the site.
+
 ---
 
 ### 2. Run CMS (Sveltia CMS)
